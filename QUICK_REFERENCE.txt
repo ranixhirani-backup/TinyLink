@@ -1,0 +1,240 @@
+# 🚀 TinyLink Quick Reference Card
+
+**Print this out or bookmark for quick access!**
+
+---
+
+## ⚡ 60-Second Setup
+
+```bash
+npm install
+npm run prisma:generate
+npx prisma db push
+npm run dev
+# Visit: http://localhost:3000
+```
+
+---
+
+## 📋 API Endpoints
+
+| Method | Endpoint | Purpose |
+|--------|----------|---------|
+| POST | `/api/links` | Create link |
+| GET | `/api/links` | List all links |
+| GET | `/api/links/CODE` | Get stats |
+| DELETE | `/api/links/CODE` | Delete link |
+| GET | `/CODE` | Redirect + track |
+| GET | `/CODE/stats` | View stats |
+| GET | `/api/healthz` | Health check |
+
+---
+
+## 🔧 Command Reference
+
+```bash
+npm run dev                # Start dev server
+npm run build              # Build for production
+npm run lint               # Check code
+npm run prisma:generate    # Generate client
+npm run prisma:migrate     # Database migration
+npm run prisma:studio      # Database GUI
+npm start                  # Run production
+```
+
+---
+
+## 📝 Example Requests
+
+### Create Link
+```bash
+curl -X POST http://localhost:3000/api/links \
+  -H "Content-Type: application/json" \
+  -d '{"targetUrl":"https://example.com","code":"mylink"}'
+```
+
+### Get All Links
+```bash
+curl http://localhost:3000/api/links
+```
+
+### Delete Link
+```bash
+curl -X DELETE http://localhost:3000/api/links/mylink
+```
+
+### Health Check
+```bash
+curl http://localhost:3000/api/healthz
+```
+
+---
+
+## 🌐 Environment Variables
+
+```env
+DATABASE_URL="postgresql://user:pass@host:5432/db"
+BASE_URL="http://localhost:3000"
+NEXT_PUBLIC_BASE_URL="http://localhost:3000"
+```
+
+---
+
+## 📁 Key Files
+
+| File | Purpose |
+|------|---------|
+| `src/app/page.tsx` | Dashboard |
+| `src/app/api/links/route.ts` | Links API |
+| `src/app/[code]/route.ts` | Redirect |
+| `src/lib/validation.ts` | Validation |
+| `prisma/schema.prisma` | Database |
+
+---
+
+## ✅ Validation Rules
+
+**Code**: 6-8 alphanumeric (A-Z, a-z, 0-9)  
+**URL**: Valid HTTP/HTTPS format  
+**Unique**: Each code must be unique  
+
+---
+
+## 🎯 URLs to Remember
+
+| URL | Purpose |
+|-----|---------|
+| http://localhost:3000 | Dashboard |
+| http://localhost:3000/api/links | API endpoint |
+| http://localhost:3000/XXXX | Short link redirect |
+| http://localhost:3000/XXXX/stats | Link stats |
+
+---
+
+## 🐛 Troubleshooting Quick Fixes
+
+| Issue | Fix |
+|-------|-----|
+| Database error | Check `DATABASE_URL` in `.env.local` |
+| Port 3000 in use | Use `npm run dev -- -p 3001` |
+| Modules not found | Run `npm install` |
+| Prisma errors | Run `npm run prisma:generate` |
+| Type errors | Check TypeScript config |
+
+---
+
+## 📊 Project Stats
+
+- **Files**: 30+
+- **Documentation**: 2600+ lines
+- **Components**: 5
+- **API Endpoints**: 7
+- **Database Tables**: 1
+- **TypeScript**: 12 files
+
+---
+
+## 🚀 Deployment Steps
+
+1. Push to GitHub
+2. Connect to Vercel
+3. Add environment variables
+4. Deploy (automatic)
+
+---
+
+## 📖 Documentation Map
+
+| File | Use Case |
+|------|----------|
+| README.md | Complete guide |
+| SETUP.md | Quick start |
+| PROJECT_SUMMARY.md | Architecture |
+| VERIFICATION.md | Checklist |
+| FILES_MANIFEST.md | File reference |
+| INDEX.md | Navigation |
+
+---
+
+## 💾 Database Schema
+
+```prisma
+model Link {
+  code        String   @id         # Unique short code
+  targetUrl   String               # Target URL
+  clicks      Int      @default(0) # Click counter
+  createdAt   DateTime @default    # Creation time
+  lastClicked DateTime?            # Last click time
+}
+```
+
+---
+
+## ✨ Features Checklist
+
+- ✅ Create short links
+- ✅ Click tracking
+- ✅ Delete links
+- ✅ Link statistics
+- ✅ Search functionality
+- ✅ Responsive UI
+- ✅ Error handling
+- ✅ Health check
+
+---
+
+## 🎨 Technology Stack
+
+- Next.js 14
+- React 18
+- TypeScript 5
+- TailwindCSS 3
+- Prisma 5
+- PostgreSQL
+
+---
+
+## 🔐 Security Features
+
+- ✅ Input validation
+- ✅ SQL injection prevention
+- ✅ URL validation
+- ✅ Code format validation
+- ✅ Type safety
+
+---
+
+## 📱 Responsive
+
+- ✅ Mobile
+- ✅ Tablet
+- ✅ Desktop
+- ✅ All modern browsers
+
+---
+
+## 🎯 Next Action
+
+```bash
+cd c:\Users\Jitender\Desktop\url
+npm install
+npm run dev
+```
+
+**Then visit: http://localhost:3000**
+
+---
+
+## 📞 Need Help?
+
+1. Read **README.md** for full docs
+2. Check **SETUP.md** for quick answers
+3. Review **VERIFICATION.md** for features
+4. Browse **source code** for examples
+
+---
+
+**TinyLink - URL Shortener**  
+**Status: ✅ Ready to Use**
+
+Print or bookmark this card for quick reference! 🎯
